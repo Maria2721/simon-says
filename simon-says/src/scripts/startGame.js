@@ -1,8 +1,7 @@
 import { roundCounter } from "./roundCounter.js";
+import { showSequence } from "./showSequence.js";
 
 export function startGame() {
-	console.log("Starting the game!");
-
 	// add action buttons
 	const actionsWrapper = document.getElementById("actions");
 	actionsWrapper.innerHTML = "";
@@ -13,6 +12,10 @@ export function startGame() {
 	repeatButton.innerHTML = "Repeat the sequence";
 	repeatButton.className = "action__btn";
 	actionsWrapper.appendChild(repeatButton);
+
+	repeatButton.addEventListener("click", () => showSequence(2, true), {
+		once: true,
+	});
 
 	const restartButton = document.createElement("button");
 	restartButton.id = "restart-button";
@@ -49,12 +52,15 @@ export function startGame() {
 	output.appendChild(inputWrapper);
 
 	// display round counter
-	const counter = document.createElement("div");
-	counter.id = "round-counter";
-	counter.className = "round__counter";
-	output.appendChild(counter);
+	const round = document.createElement("div");
+	round.id = "round-counter";
+	round.className = "round__counter";
+	output.appendChild(round);
 
 	// initializing counter
-	const { incrementCounter } = roundCounter(counter);
+	const { incrementCounter } = roundCounter(round);
 	incrementCounter();
+
+	// show sequence
+	showSequence(2, false);
 }

@@ -14,5 +14,9 @@ export function roundCounter(displayElement) {
 		setCounter(0);
 	};
 
-	return { incrementCounter, resetCounter };
+	const getCounter = () => {
+		return counter;
+	};
+
+	return { incrementCounter, resetCounter, getCounter };
 }

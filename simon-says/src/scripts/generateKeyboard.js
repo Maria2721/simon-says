@@ -18,7 +18,7 @@ export function generateKeyboard() {
 
 	symbols.forEach((el) => {
 		const key = document.createElement("button");
-		key.id = String(el);
+		key.id = `symbol${el}`;
 		key.type = "button";
 		key.innerHTML = String(el);
 		key.className = "keyboard__key";

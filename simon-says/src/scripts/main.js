@@ -1,7 +1,7 @@
 import "normalize.css";
 import "../styles/style.css";
 
-import { generateKeyboard } from "./keyboard.js";
+import { generateKeyboard } from "./generateKeyboard.js";
 import { startGame } from "./startGame.js";
 
 const initializeApp = () => {
