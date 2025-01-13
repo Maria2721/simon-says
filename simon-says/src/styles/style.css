@@ -15,8 +15,9 @@
 
   /* Fonts */
   --font-family: "Arial", sans-serif;
+  --font-size: 1.2em;
   --font-weight: 400;
-  --line-height: 1.5;
+  --line-height: 1.2;
 }
 
 * {
@@ -27,26 +28,20 @@
 
 body {
   display: flex;
-  place-items: center;
+  justify-content: center;
 
   background: var(--static-white);
   color: var(--extra);
 
   font-family: var(--font-family);
+  font-size: var(--font-size);
   font-weight: var(--font-weight);
   line-height: var(--line-height);
 }
 
-.container {
-  width: 100%;
-  margin: 20px;
-  /* max-width: 1440px; */
-  min-height: 100vh;
-}
-
-a,
+div,
 button,
-div {
+select {
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -56,31 +51,133 @@ div {
   box-shadow: none;
 }
 
-a {
-  color: var(--extra);
-  text-decoration: none;
-  cursor: pointer;
+.container {
+  margin: 20px;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  min-height: 500px;
+  border: 2px solid var(--extra);
 }
 
-a:hover {
-  color: var(--primary);
+.heading {
+  margin: 0;
+  padding: 0 0 20px 0;
+  font-weight: 600;
+  font-size: 1.8em;
+  text-align: center;
 }
 
-button {
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.start__btn {
   border-radius: 8px;
   border: 2px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
+  padding: 5px 10px;
+
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+
   color: var(--static-white);
   background-color: var(--primary);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.3s ease-in;
 }
 
-button:hover {
+.start__btn:hover {
+  color: var(--extra);
   border-color: var(--extra);
+}
+
+.select__wrapper {
+  width: auto;
+}
+
+.level__label {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.level__select {
+  background-color: var(--primary);
+  border: 3px solid var(--primary);
+  border-radius: 8px;
+  padding: 5px 10px;
+  width: 150px;
+
+  font-family: var(--font-family);
+  font-size: 1em;
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+  color: var(--static-white);
+
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  position: relative;
+
+  background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6"%3E%3Cpath d="M0 0l5 6 5-6H0z" fill="%23fff"/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 15px 9px;
+}
+
+.level__select:hover {
+  border-color: var(--extra);
+}
+
+.level__option {
+  padding: 10px;
+  background-color: var(--static-white);
+
+  font-family: var(--font-family);
+  font-size: 1em;
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+  color: var(--extra);
+}
+
+.keyboard__wrapper {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  padding: 20px;
+  border: 2px solid var(--primary);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+}
+
+.keyboard__key {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  border: 0;
+
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+
+  color: var(--static-white);
+  background-color: var(--extra);
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.keyboard__key:hover {
+  background-color: var(--primary);
 }
 
 @media (max-width: 1440px) {}
