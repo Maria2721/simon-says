@@ -41,7 +41,8 @@ body {
 
 div,
 button,
-select {
+select,
+input[readonly] {
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -53,7 +54,7 @@ select {
 
 .container {
   margin: 20px;
-  padding: 20px;
+  padding: 40px;
   width: 100%;
   height: 100%;
   max-width: 1000px;
@@ -63,7 +64,7 @@ select {
 
 .heading {
   margin: 0;
-  padding: 0 0 20px 0;
+  padding: 0 0 40px 0;
   font-weight: 600;
   font-size: 1.8em;
   text-align: center;
@@ -76,7 +77,11 @@ select {
   align-items: flex-start;
 }
 
-.start__btn {
+.actions__wrapper>.action__btn:first-child {
+  margin-right: 20px;
+}
+
+.action__btn {
   border-radius: 8px;
   border: 2px solid transparent;
   padding: 5px 10px;
@@ -92,7 +97,7 @@ select {
   transition: all 0.3s ease-in;
 }
 
-.start__btn:hover {
+.action__btn:hover {
   color: var(--extra);
   border-color: var(--extra);
 }
@@ -101,7 +106,8 @@ select {
   width: auto;
 }
 
-.level__label {
+.level__label,
+.sequence__label {
   display: inline-block;
   margin-right: 8px;
 }
@@ -142,6 +148,30 @@ select {
   font-weight: var(--font-weight);
   line-height: var(--line-height);
   color: var(--extra);
+}
+
+.output {
+  margin-top: 20px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.readonly__input {
+  border: 3px solid var(--primary);
+  border-radius: 8px;
+  padding: 5px 10px;
+  width: 300px;
+
+  font-family: var(--font-family);
+  font-size: 1em;
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+  color: var(--static-white);
+
+  cursor: default;
 }
 
 .keyboard__wrapper {

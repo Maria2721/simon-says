@@ -2,6 +2,7 @@ import "normalize.css";
 import "../styles/style.css";
 
 import { generateKeyboard } from "./keyboard.js";
+import { startGame } from "./startGame.js";
 
 const initializeApp = () => {
 	const app = document.createElement("div");
@@ -13,14 +14,20 @@ const initializeApp = () => {
 	app.appendChild(heading);
 
 	const options = document.createElement("div");
+	options.id = "options";
 	options.className = "options";
+
+	const actionsWrapper = document.createElement("div");
+	actionsWrapper.id = "actions";
+	actionsWrapper.className = "actions__wrapper";
 
 	const startButton = document.createElement("button");
 	startButton.id = "start-button";
 	startButton.type = "button";
 	startButton.innerHTML = "Start";
-	startButton.className = "start__btn";
-	options.appendChild(startButton);
+	startButton.className = "action__btn";
+	actionsWrapper.appendChild(startButton);
+	options.appendChild(actionsWrapper);
 
 	const selectWrapper = document.createElement("div");
 	selectWrapper.className = "select__wrapper";
@@ -28,7 +35,7 @@ const initializeApp = () => {
 	const levelLabel = document.createElement("label");
 	levelLabel.htmlFor = "level-select";
 	levelLabel.className = "level__label";
-	levelLabel.innerHTML = "Choose level";
+	levelLabel.innerHTML = "Choose level:";
 	selectWrapper.appendChild(levelLabel);
 
 	const levelSelect = document.createElement("select");
@@ -59,6 +66,11 @@ const initializeApp = () => {
 	options.appendChild(selectWrapper);
 	app.appendChild(options);
 
+	const output = document.createElement("div");
+	output.id = "output";
+	output.className = "output";
+	app.appendChild(output);
+
 	const keyboard = document.createElement("div");
 	keyboard.id = "keyboard";
 	keyboard.className = "keyboard__wrapper";
@@ -72,3 +84,6 @@ generateKeyboard();
 
 const levelsSelect = document.getElementById("level-select");
 levelsSelect.addEventListener("click", generateKeyboard);
+
+const startButton = document.getElementById("start-button");
+startButton.addEventListener("click", startGame);
