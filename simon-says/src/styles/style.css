@@ -169,7 +169,7 @@ input[readonly] {
   font-size: 1em;
   font-weight: var(--font-weight);
   line-height: var(--line-height);
-  color: var(--static-white);
+  color: var(--extra);
 
   cursor: default;
 }
@@ -206,7 +206,6 @@ input[readonly] {
   transition: all 0.3s ease-in;
 }
 
-.keyboard__key:hover,
 .keyboard__key_pressed {
   background-color: var(--primary);
 }

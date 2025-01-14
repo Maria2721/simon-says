@@ -1,5 +1,6 @@
 import { roundCounter } from "./roundCounter.js";
 import { showSequence } from "./showSequence.js";
+import { clickingKeys } from "./clickingKeys.js";
 
 export function startGame() {
 	// add action buttons
@@ -44,8 +45,8 @@ export function startGame() {
 	inputWrapper.appendChild(inputLabel);
 
 	const inputReadonly = document.createElement("input");
-	inputReadonly.id = "readonly-input";
 	inputReadonly.type = "text";
+	inputReadonly.id = "readonly-input";
 	inputReadonly.className = "readonly__input";
 	inputReadonly.readOnly = true;
 	inputWrapper.appendChild(inputReadonly);
@@ -63,4 +64,6 @@ export function startGame() {
 
 	// show sequence
 	showSequence(2, false);
+
+	clickingKeys();
 }
