@@ -1,6 +1,11 @@
 import { roundCounter } from "./roundCounter.js";
 import { showSequence } from "./showSequence.js";
 import { clickingKeys } from "./clickingKeys.js";
+import { clickingPhysicalKeys } from "./clickingPhysicalKeys.js";
+
+const activatePhysicalKeysListener = () => {
+	document.addEventListener("keydown", clickingPhysicalKeys);
+};
 
 export function startGame() {
 	// add action buttons
@@ -65,5 +70,9 @@ export function startGame() {
 	// show sequence
 	showSequence(2, false);
 
+	// add onclick on virtual keyboard
 	clickingKeys();
+
+	// add listener for physical keys press
+	activatePhysicalKeysListener();
 }

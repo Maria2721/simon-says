@@ -62,6 +62,6 @@ function simulatePress(button) {
 			const eventUp = new MouseEvent("mouseup", { bubbles: true });
 			button.dispatchEvent(eventUp);
 			resolve();
-		}, 3000);
+		}, 500);
 	});
 }
