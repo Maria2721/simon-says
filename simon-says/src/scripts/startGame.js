@@ -41,6 +41,7 @@ export function startGame() {
 
 	// display non-editable input
 	const inputWrapper = document.createElement("div");
+	inputWrapper.id = "input-wrapper";
 	inputWrapper.className = "input__wrapper";
 
 	const inputLabel = document.createElement("label");

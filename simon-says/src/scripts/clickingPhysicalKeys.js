@@ -18,5 +18,3 @@ export function clickingPhysicalKeys(event) {
 		inputReadonly.value += keyPressed;
 	}
 }
-
-document.addEventListener("keydown", clickingPhysicalKeys);

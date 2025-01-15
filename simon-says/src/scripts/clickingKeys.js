@@ -3,18 +3,19 @@ import { keyManager } from "./keyManager.js";
 export function clickingKeys() {
 	const inputReadonly = document.getElementById("readonly-input");
 	const keyboard = document.getElementById("keyboard");
-	const buttons = keyboard.querySelectorAll("button");
 
-	buttons.forEach((button) => {
-		button.addEventListener("click", () => {
-			if (keyManager.getActiveKey() !== null) {
-				return;
-			}
+	keyboard.addEventListener("click", (event) => {
+		const button = event.target.closest("button");
 
-			keyManager.handleKeyClick(button);
+		if (keyManager.getActiveKey() !== null) {
+			return;
+		}
 
-			const valueToAdd = button.getAttribute("data-value");
-			inputReadonly.value += valueToAdd;
-		});
+		keyManager.handleKeyClick(button);
+
+		const valueToAdd = button.getAttribute("data-value");
+
+		// processingAnswer(valueToAdd);
+		inputReadonly.value += valueToAdd;
 	});
 }
