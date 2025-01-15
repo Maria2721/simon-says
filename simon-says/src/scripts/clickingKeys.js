@@ -1,4 +1,5 @@
 import { keyManager } from "./keyManager.js";
+import { processingAnswer } from "./processingAnswer.js";
 
 export function clickingKeys() {
 	const inputReadonly = document.getElementById("readonly-input");
@@ -11,11 +12,15 @@ export function clickingKeys() {
 			return;
 		}
 
-		keyManager.handleKeyClick(button);
+		if (button) {
+			keyManager.handleKeyClick(button);
 
-		const valueToAdd = button.getAttribute("data-value");
+			const valueToAdd = button.getAttribute("data-value");
+			const answer = processingAnswer(valueToAdd);
 
-		// processingAnswer(valueToAdd);
-		inputReadonly.value += valueToAdd;
+			if (answer) {
+				inputReadonly.value += valueToAdd;
+			}
+		}
 	});
 }

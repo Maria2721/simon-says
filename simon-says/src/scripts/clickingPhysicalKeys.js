@@ -1,4 +1,5 @@
 import { keyManager } from "./keyManager.js";
+import { processingAnswer } from "./processingAnswer.js";
 
 export function clickingPhysicalKeys(event) {
 	const inputReadonly = document.getElementById("readonly-input");
@@ -15,6 +16,10 @@ export function clickingPhysicalKeys(event) {
 
 	if (virtualKeyButton) {
 		keyManager.handleKeyClick(virtualKeyButton);
-		inputReadonly.value += keyPressed;
+
+		const answer = processingAnswer(keyPressed);
+		if (answer) {
+			inputReadonly.value += keyPressed;
+		}
 	}
 }

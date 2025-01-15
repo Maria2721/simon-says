@@ -159,6 +159,22 @@ input[readonly] {
   align-items: flex-start;
 }
 
+.input__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.message {
+  margin-top: 20px;
+  height: 30px;
+}
+
+.message__answer {
+  color: var(--tag-pink);
+}
+
 .readonly__input {
   border: 3px solid var(--primary);
   border-radius: 8px;

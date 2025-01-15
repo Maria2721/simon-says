@@ -65,6 +65,11 @@ export const initializeApp = () => {
 	output.className = "output";
 	app.appendChild(output);
 
+	const message = document.createElement("div");
+	message.id = "message";
+	message.className = "message";
+	app.appendChild(message);
+
 	const keyboard = document.createElement("div");
 	keyboard.id = "keyboard";
 	keyboard.className = "keyboard__wrapper";

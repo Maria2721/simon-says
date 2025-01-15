@@ -1,4 +1,5 @@
-import { disableButtons } from "./disableButtons.js";
+import { disableButtonById } from "./disableButtonById.js";
+import { disableKeyboardButtons } from "./disableKeyboardButtons.js";
 
 export async function showSequence(length, repeat) {
 	const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -16,12 +17,20 @@ export async function showSequence(length, repeat) {
 	}
 	const sequence = [];
 
-	disableButtons(true);
+	disableButtonById(true, "repeat-button");
+	disableButtonById(true, "restart-button");
+	disableKeyboardButtons(true);
 
 	if (!repeat) {
 		for (let i = 0; i < length; i++) {
-			let randomIndex = Math.floor(Math.random() * symbols.length);
-			let randomValue = symbols[randomIndex];
+			let randomValue;
+			let randomIndex;
+
+			do {
+				randomIndex = Math.floor(Math.random() * symbols.length);
+				randomValue = symbols[randomIndex];
+			} while (sequence[i - 1] === randomValue);
+
 			sequence.push(randomValue);
 
 			const keyboardButton = document.getElementById(
@@ -44,11 +53,12 @@ export async function showSequence(length, repeat) {
 		}
 	}
 
-	if (repeat) {
-		disableButtons(false, "repeat-button");
-	} else {
-		disableButtons(false);
+	if (!repeat) {
+		disableButtonById(false, "repeat-button");
 	}
+
+	disableButtonById(false, "restart-button");
+	disableKeyboardButtons(false);
 }
 
 function simulatePress(button) {

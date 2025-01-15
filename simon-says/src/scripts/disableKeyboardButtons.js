@@ -1,16 +1,15 @@
 let buttonsDisabled = false;
 
-export function disableButtons(state, id = null) {
-	const buttons = document.querySelectorAll("button");
-	buttons.forEach((button) => {
-		if (id && button.id === id) {
-			return;
-		}
+export function disableKeyboardButtons(state) {
+	const keyboard = document.getElementById("keyboard");
+	const buttons = keyboard.querySelectorAll("button");
 
+	buttons.forEach((button) => {
 		button.disabled = state;
 		button.style.pointerEvents = state ? "none" : "auto";
 		button.style.cursor = state ? "default" : "pointer";
 	});
+
 	buttonsDisabled = state;
 
 	if (state) {
