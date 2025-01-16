@@ -3,6 +3,8 @@ import { showSequence } from "./showSequence.js";
 import { clickingKeys } from "./clickingKeys.js";
 import { clickingPhysicalKeys } from "./clickingPhysicalKeys.js";
 import { errorManager } from "./errorManager.js";
+import { restartGame } from "./restartGame.js";
+import { disableButtonById } from "./disableButtonById.js";
 
 const activatePhysicalKeysListener = () => {
 	document.addEventListener("keydown", clickingPhysicalKeys);
@@ -10,11 +12,7 @@ const activatePhysicalKeysListener = () => {
 
 export function startGame() {
 	// inactive level selection
-	const levelSelect = document.getElementById("level-select");
-	levelSelect.disabled = true;
-	levelSelect.style.pointerEvents = "none";
-	levelSelect.style.cursor = "default";
-	levelSelect.style.opacity = "0.5";
+	disableButtonById(true, "level-select");
 
 	const output = document.getElementById("output");
 
@@ -32,6 +30,7 @@ export function startGame() {
 	const inputReadonly = document.createElement("input");
 	inputReadonly.type = "text";
 	inputReadonly.id = "readonly-input";
+	inputReadonly.value = "";
 	inputReadonly.className = "readonly__input";
 	inputReadonly.readOnly = true;
 	inputWrapper.appendChild(inputReadonly);
@@ -41,6 +40,7 @@ export function startGame() {
 	const message = document.getElementById("message");
 	const answer = document.createElement("span");
 	answer.id = "answer";
+	answer.textContent = "";
 	answer.className = "message__answer";
 	message.appendChild(answer);
 
@@ -74,6 +74,8 @@ export function startGame() {
 	restartButton.innerHTML = "New game";
 	restartButton.className = "action__btn";
 	actionsWrapper.appendChild(restartButton);
+
+	restartButton.addEventListener("click", restartGame);
 
 	// display round counter
 	const round = document.createElement("div");

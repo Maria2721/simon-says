@@ -7,8 +7,8 @@ import { addEventListeners } from "./eventListeners.js";
 
 const initializeAppAndEvents = () => {
 	initializeApp();
-	generateKeyboard();
 	addEventListeners();
+	generateKeyboard();
 };
 
 initializeAppAndEvents();

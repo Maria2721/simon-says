@@ -41,7 +41,6 @@ export const initializeApp = () => {
 	option1.value = "easy";
 	option1.innerHTML = "Easy";
 	option1.className = "level__option";
-	option1.selected = true;
 	levelSelect.appendChild(option1);
 
 	const option2 = document.createElement("option");

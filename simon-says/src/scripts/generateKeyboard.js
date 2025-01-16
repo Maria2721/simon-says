@@ -4,6 +4,7 @@ export function generateKeyboard() {
 
 	const keyboard = document.getElementById("keyboard");
 	const level = document.getElementById("level-select").value;
+	sessionStorage.setItem("level", JSON.stringify(level));
 
 	keyboard.innerHTML = "";
 
