@@ -1,6 +1,5 @@
-# maria2721-JSFE2024Q4
+# Simon Says
 
-## Tasks
+## Result
 
--   Christmas Shop - https://rolling-scopes-school.github.io/maria2721-JSFE2024Q4/christmas-shop/
--   Simon Says - https://rolling-scopes-school.github.io/maria2721-JSFE2024Q4/simon-says/
+https://maria2721.github.io/simon-says/
